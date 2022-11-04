@@ -4,3 +4,21 @@ export interface IProducts {
   amount: string;
   orderId?: number;
 }
+
+export interface IJwt {
+  id: number;
+  username: string;
+  classe: string;
+  level: number;
+}
+
+export interface IToken {
+  payload: {
+    id: number;
+    name: string;
+    email: string;
+    password: string;
+  };
+  iat: number;
+  exp: number;
+}
