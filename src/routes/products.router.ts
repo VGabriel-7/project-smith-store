@@ -7,4 +7,6 @@ const productsController = new ProductsController();
 
 route.post('/', productsController.create.bind(productsController));
 
+route.get('/', productsController.getAll.bind(productsController));
+
 export default route;

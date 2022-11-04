@@ -9,4 +9,10 @@ export default class ProductsService {
 
     return productInserted;
   }
+
+  public async getAll(): Promise<IProducts[]> {
+    const getedProducts = await this.products.getAll();
+
+    return getedProducts;
+  }
 }
