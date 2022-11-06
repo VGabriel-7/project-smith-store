@@ -5,6 +5,13 @@ export interface IProducts {
   orderId?: number;
 }
 
+export interface IUser {
+  username: string;
+  classe: string;
+  level: number;
+  password: string;
+}
+
 export interface IJwt {
   id: number;
   username: string;

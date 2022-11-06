@@ -16,7 +16,7 @@ export const createToken = (data: IJwt) => {
 export const validateToken = (token: string) => {
   try {
     const { payload } = jwt.verify(token, String(process.env.JWT_SECRET)) as IToken;
-    
+
     return payload;
   } catch (error) {
     const err = new Error('Expired or invalid token');
