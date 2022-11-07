@@ -3,12 +3,12 @@ import Validations from './validations';
 
 const validation = new Validations();
 
-const validateBodyProducts = (
+const validateBodyUsers = (
   req: Request,
   res: Response,
   next: NextFunction,
 ) => {
-  const { error } = validation.objectProd.validate(req.body);
+  const { error } = validation.objectUser.validate(req.body);
 
   if (error && error.message.includes('is required')) {
     return res.status(400).json({ message: error.message });
@@ -20,4 +20,4 @@ const validateBodyProducts = (
   next();
 };
 
-export default validateBodyProducts;
+export default validateBodyUsers;

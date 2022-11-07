@@ -1,6 +1,17 @@
 import Joi from 'joi';
 
-export default Joi.object({
-  name: Joi.string().min(3).required(),
-  amount: Joi.string().min(3).required(),
-});
+const genericStr = (minString: number) => Joi.string().min(minString).required();
+
+export default class Validations {
+  public objectProd = Joi.object({
+    name: genericStr(3),
+    amount: genericStr(3),
+  });
+
+  public objectUser = Joi.object({
+    username: genericStr(3),
+    classe: genericStr(3),
+    level: Joi.number().min(1).required(),
+    password: genericStr(8),
+  });
+}
