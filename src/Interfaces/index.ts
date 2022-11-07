@@ -29,3 +29,9 @@ export interface IToken {
   iat: number;
   exp: number;
 }
+
+export interface IOrders {
+  id: number;
+  userId: number;
+  productsIds: number[];
+}
