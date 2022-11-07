@@ -11,8 +11,6 @@ const validateOrder = (message: string, res: Response) => {
     return res.status(400).json({ message });
   }
   if (message) {
-    console.log('caiu aqui');
-    
     return res.status(422).json({ message });
   }
 };
