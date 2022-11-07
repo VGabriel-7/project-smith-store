@@ -13,14 +13,14 @@ export const createToken = (data: IJwt) => {
   return token;
 };
 
-export const validateToken = (token: string) => {
+export const validateTk = (token: string) => {
   try {
-    const { payload } = jwt.verify(token, String(process.env.JWT_SECRET)) as IToken;
-
-    return payload;
+    const { data } = jwt.verify(token, String(process.env.JWT_SECRET)) as IToken;
+    
+    return data;
   } catch (error) {
-    const err = new Error('Expired or invalid token');
-    err.message = 'Expired or invalid token';
+    const err = new Error('Invalid token');
+    err.message = 'Invalid token';
     throw err;
   }
 };

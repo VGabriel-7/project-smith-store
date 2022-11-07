@@ -22,9 +22,11 @@ export default class UserModel {
 
     const sqlFindUser = 'SELECT * FROM Trybesmith.Users WHERE username = ? AND password = ?';
 
-    const [[result]] = await
+    const [[{ id, classe, level }]] = await
     this.connection.execute<ILogin[] & RowDataPacket[]>(sqlFindUser, [username, password]);
 
-    return result;
+    const user = { id, username, classe, level };
+    
+    return user;
   }
 }

@@ -33,7 +33,7 @@ export interface IJwt {
 }
 
 export interface IToken {
-  payload: {
+  data: {
     id: number;
     name: string;
     email: string;
@@ -46,5 +46,10 @@ export interface IToken {
 export interface IOrders {
   id: number;
   userId: number;
+  productsIds: number[];
+}
+
+export interface IInsertOrders {
+  userId?: number;
   productsIds: number[];
 }

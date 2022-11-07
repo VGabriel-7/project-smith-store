@@ -14,4 +14,9 @@ export default class Validations {
     level: Joi.number().min(1).required(),
     password: genericStr(8),
   });
+
+  public objectOrders = Joi.object({
+    id: Joi.number(),
+    productsIds: Joi.array().min(1).required(),
+  });
 }

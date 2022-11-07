@@ -9,4 +9,12 @@ export default class ProductsController {
 
     res.status(200).json(getedOrders);
   }
+
+  public async create(req: Request, res: Response): Promise<void> {
+    const { productsIds, id } = req.body;
+    
+    const insertedOrders = await this.orders.create(+id, productsIds);
+
+    res.status(201).json(insertedOrders);
+  }
 }
