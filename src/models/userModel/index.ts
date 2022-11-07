@@ -1,5 +1,5 @@
-import { ResultSetHeader } from 'mysql2';
-import { IJwt, IUser } from '../../Interfaces';
+import { ResultSetHeader, RowDataPacket } from 'mysql2';
+import { IJwt, IUser, IUserLogin, ILogin } from '../../Interfaces';
 import mysql from '../connection';
 
 export default class UserModel {
@@ -15,5 +15,16 @@ export default class UserModel {
       .execute<ResultSetHeader>(sqlCreate, [username, classe, level, password]);
 
     return { id: insertId, username, classe, level };
+  }
+
+  public async login(userLogin: IUserLogin): Promise<ILogin> {
+    const { username, password } = userLogin;
+
+    const sqlFindUser = 'SELECT * FROM Trybesmith.Users WHERE username = ? AND password = ?';
+
+    const [[result]] = await
+    this.connection.execute<ILogin[] & RowDataPacket[]>(sqlFindUser, [username, password]);
+
+    return result;
   }
 }

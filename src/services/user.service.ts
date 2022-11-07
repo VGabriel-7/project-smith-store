@@ -1,4 +1,4 @@
-import { IJwt, IUser } from '../Interfaces';
+import { IJwt, ILogin, IUser, IUserLogin } from '../Interfaces';
 import UserModel from '../models/userModel';
 
 export default class ProductsService {
@@ -8,5 +8,11 @@ export default class ProductsService {
     const userInserted = await this.user.create(user);
 
     return userInserted;
+  }
+
+  public async login(userLogin: IUserLogin): Promise<ILogin> {
+    const login = await this.user.login(userLogin);
+
+    return login;
   }
 }

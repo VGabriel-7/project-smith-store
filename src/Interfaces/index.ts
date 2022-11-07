@@ -9,7 +9,20 @@ export interface IUser {
   username: string;
   classe: string;
   level: number;
+  password?: string;
+}
+
+export interface ILogin extends IUser {
+  id: number
+}
+
+export interface IUserLogin {
+  username: string;
   password: string;
+}
+
+export interface IJson {
+  message: string;
 }
 
 export interface IJwt {
