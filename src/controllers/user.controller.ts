@@ -16,8 +16,7 @@ export default class ProductsController {
     res.status(201).json({ token });
   }
 
-  public async login(req: Request, res: Response):
-  Promise<void | Response<IJson, Record<string, any>>> {
+  public async login(req: Request, res: Response) {
     const { body } = req;
 
     const login = await this.user.login(body);
